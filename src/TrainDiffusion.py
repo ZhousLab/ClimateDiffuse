@@ -162,11 +162,16 @@ def main():
     network.to(device)
 
     # define the datasets
-    datadir = "/home/Everyone/ERA5/data/"
-    dataset_train = UpscaleDataset(datadir, year_start=1950, year_end=2017,
+    # datadir = "/home/Everyone/ERA5/data/"
+    datadir = "/home/git/ClimateDiffuse/data_sample/"
+    # dataset_train = UpscaleDataset(datadir, year_start=1950, year_end=2017,
+    #                                constant_variables=["lsm", "z"])
+    dataset_train = UpscaleDataset(datadir, year_start=1953, year_end=1954,
                                    constant_variables=["lsm", "z"])
 
-    dataset_test = UpscaleDataset(datadir, year_start=2017, year_end=2018,
+    # dataset_test = UpscaleDataset(datadir, year_start=2017, year_end=2018,
+    #                               constant_variables=["lsm", "z"])
+    dataset_test = UpscaleDataset(datadir, year_start=1953, year_end=1954,
                                   constant_variables=["lsm", "z"])
 
     dataloader_train = torch.utils.data.DataLoader(
